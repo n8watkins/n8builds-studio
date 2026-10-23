@@ -151,6 +151,14 @@ export const post = defineType({
           rows: 2,
         }),
         defineField({
+          name: 'shareDescription',
+          title: 'Share description',
+          description:
+            'The line under the title in link previews (X, LinkedIn, Discord). About 120 characters at most, so it is not cut off. Falls back to the excerpt.',
+          type: 'string',
+          validation: (rule) => rule.max(120),
+        }),
+        defineField({
           name: 'ogImage',
           title: 'Social share image',
           description: 'Overrides the cover image for social link previews.',

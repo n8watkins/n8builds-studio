@@ -33,3 +33,14 @@ this is a known lag that should get patched.
 **Revisit the embed once Sanity bundles cleanly on Next 16** (it builds fine on
 Next 15 — which is what `portfolio-rank` runs). Until then, author here / at
 n8builds.sanity.studio; nothing about the live blog depends on the embed.
+
+## Live status (the "Go live" switch)
+
+**Live status** sits at the top of the Studio's content list.
+It is a single document that tells n8builds.dev you're streaming.
+
+- Switch **Live now** on, pick the platform (X, Twitch, YouTube or Other), optionally add the link and a title, and **Publish**.
+- Switch it off and publish when you stop; it also counts as off 12 hours after it was switched on (**Started at** is stamped automatically).
+- While it's on, the site shows its corner player (a card with "Watch on X" for X), the navbar live dot and the `n8builds.dev/live` redirect, within about a minute.
+- It is the only way the site knows about X streams, and it overrides the automatic Twitch and YouTube checks if they miss one.
+- Only published changes count: the site reads the public dataset, which never includes drafts.

@@ -9,7 +9,9 @@ import { defineField, defineType } from 'sanity'
  * page under "Recent activity".
  */
 
-// The builds the log tracks (data/builds.tsx in n8builds-web, the ones with a repo).
+// The builds the log tracks: the builds with a `repo` in data/builds.tsx in
+// n8builds-web. Keep this list in step when a build is added or removed there;
+// the site ignores highlights for builds that aren't on it.
 const BUILDS = [
   { title: 'Scribe', value: 'scribe' },
   { title: 'Solara', value: 'solara' },
@@ -68,7 +70,13 @@ export const logEntry = defineType({
       type: 'text',
       rows: 3,
     }),
-    defineField({ name: 'link', title: 'Link', description: 'Optional: a release, a demo, a post.', type: 'url' }),
+    defineField({
+      name: 'link',
+      title: 'Link',
+      description: 'Optional: a release, a demo, a post. A path on n8builds.dev (like /builds/scribe) works too.',
+      type: 'url',
+      validation: (rule) => rule.uri({ allowRelative: true, scheme: ['https', 'http'] }),
+    }),
     defineField({
       name: 'image',
       title: 'Image',

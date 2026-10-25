@@ -14,6 +14,7 @@ import { defineField, defineType } from 'sanity'
 // the site ignores highlights for builds that aren't on it.
 const BUILDS = [
   { title: 'Scribe', value: 'scribe' },
+  { title: 'OpenPing', value: 'openping' },
   { title: 'Solara', value: 'solara' },
   { title: 'Portfolio Rank', value: 'portfolio-rank' },
   { title: 'TL;DW', value: 'tldw' },

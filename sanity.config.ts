@@ -4,6 +4,7 @@ import { visionTool } from '@sanity/vision'
 
 import { schemaTypes } from './schemas'
 import { LIVE_STATUS_ID } from './schemas/liveStatus'
+import { PreviewAction } from './actions/previewAction'
 
 // "Live status" is a single document: one tap from the Studio home, never
 // created twice, duplicated or deleted.
@@ -41,8 +42,12 @@ export default defineConfig({
   },
 
   document: {
-    actions: (actions, { schemaType }) =>
-      SINGLETONS.has(schemaType) ? actions.filter(({ action }) => action && SINGLETON_ACTIONS.has(action)) : actions,
+    actions: (actions, { schemaType }) => {
+      if (SINGLETONS.has(schemaType)) return actions.filter(({ action }) => action && SINGLETON_ACTIONS.has(action))
+      // Posts get "Preview" right after Publish (see actions/previewAction.ts).
+      if (schemaType === 'post') return [actions[0], PreviewAction, ...actions.slice(1)]
+      return actions
+    },
     newDocumentOptions: (options, { creationContext }) =>
       creationContext.type === 'global' ? options.filter((o) => !SINGLETONS.has(o.templateId)) : options,
   },

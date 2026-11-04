@@ -50,3 +50,13 @@ It is a single document that tells n8builds.dev you're streaming.
 - While it's on, the site shows its corner player (a card with "Watch on X" for X), the navbar live dot and the `n8builds.dev/live` redirect, within about a minute.
 - It is the only way the site knows about X streams, and it overrides the automatic Twitch and YouTube checks if they miss one.
 - Only published changes count: the site reads the public dataset, which never includes drafts.
+
+## Preview (drafts on the real site)
+
+Every post has a **Preview** button next to **Publish**.
+It opens the post on n8builds.dev as it is right now, unpublished changes included, with a "Preview. Drafts are showing." bar and an **Exit preview** button.
+
+- It works for posts that were never published too.
+- The link carries a secret that lasts an hour and only a signed-in Studio user can make, so a preview link can't be guessed; nothing in a preview is cached or indexed.
+- To preview on a local copy of the site instead: `SANITY_STUDIO_PREVIEW_URL=http://localhost:3737 npm run dev`.
+- How the site checks it: `docs/SANITY.md` in n8builds-web.

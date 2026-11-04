@@ -1,0 +1,18 @@
+version: 2
+updates:
+  # Sanity ships often; one weekly pull request for all of it, so a security
+  # fix in a Sanity dependency arrives with the release that carries it.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      sanity:
+        patterns: ["sanity", "@sanity/*"]
+      other:
+        patterns: ["*"]
+        exclude-patterns: ["sanity", "@sanity/*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

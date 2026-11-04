@@ -18,9 +18,15 @@ So: **Studio = write · Sanity cloud = the shared store · n8builds-web = read.*
 
 ```bash
 npm install
-npm run dev      # Studio dev server
-npm run deploy   # deploy to n8builds.sanity.studio
+npm run dev              # Studio dev server
+npm run typecheck        # TypeScript
+npm run schema:validate  # schema checks
+npm run build            # what CI runs (.github/workflows/ci.yml)
+npm run deploy           # deploy to n8builds.sanity.studio
 ```
+
+CI type-checks, validates the schema and builds every pull request.
+Dependabot opens one weekly pull request for all Sanity packages.
 
 ## Why standalone (not embedded in n8builds-web)
 

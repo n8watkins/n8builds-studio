@@ -67,7 +67,7 @@ export const post = defineType({
     defineField({
       name: 'tags',
       title: 'Tags',
-      description: 'Free-form tags — type anything.',
+      description: 'Free-form tags: type anything.',
       type: 'array',
       of: [{ type: 'string' }],
     }),

@@ -1,8 +1,7 @@
 # n8builds Studio
 
-The **Sanity Studio** (content editor) for the N8builds blog ("N8 Notions").
-A **standalone** Sanity Studio app — intentionally *not* part of the
-`n8builds-web` website repo.
+The **Sanity Studio** (content editor) for the n8builds.dev blog, "N8 Notions".
+It is a **standalone** Sanity Studio app, intentionally *not* part of the [`n8builds-web`](https://github.com/n8watkins/n8builds-web) website repo.
 
 ## What this is
 
@@ -37,7 +36,7 @@ to resolve `rxjs` named exports (`catchError`, `share`, `takeUntil`, …) under
 this is a known lag that should get patched.
 
 **Revisit the embed once Sanity bundles cleanly on Next 16** (it builds fine on
-Next 15 — which is what `portfolio-rank` runs). Until then, author here / at
+Next 15, which is what `portfolio-rank` runs). Until then, author here / at
 n8builds.sanity.studio; nothing about the live blog depends on the embed.
 
 ## Live status (the "Go live" switch)
@@ -50,3 +49,7 @@ It is a single document that tells n8builds.dev you're streaming.
 - While it's on, the site shows its corner player (a card with "Watch on X" for X), the navbar live dot and the `n8builds.dev/live` redirect, within about a minute.
 - It is the only way the site knows about X streams, and it overrides the automatic Twitch and YouTube checks if they miss one.
 - Only published changes count: the site reads the public dataset, which never includes drafts.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
